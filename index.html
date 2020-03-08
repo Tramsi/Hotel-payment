@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel payment</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="container grid">
+      <div class="hotel-img">
+        <img src="imgs/Suite.jpg" alt="Hotel suite" />
+      </div>
+      <div class="details">
+        <div class="room">
+          <p>203</p>
+          <p>Room No.</p>
+        </div>
+        <div class="arrival">
+          <p>Arrival date</p>
+          <p>Thu, Oct 29, 2018</p>
+        </div>
+        <div class="departure">
+          <p>Departure date</p>
+          <p>Tue, Oct 27, 2018</p>
+        </div>
+        <p>Invoice information</p>
+        <div class="charges">
+          <p>
+            <span class="nightCost">250</span>x<span class="nightN">3</span
+            >nights:
+          </p>
+          <p class="costBefore">$750.00</p>
+        </div>
+        <div class="discount">
+          <p>$57.99</p>
+          <p>Discount</p>
+        </div>
+        <div class="subtotal">
+          <p>$692.01</p>
+          <p>Subtotal</p>
+        </div>
+        <div class="tax">
+          <p>$7.99</p>
+          <p>Tax</p>
+        </div>
+        <div class="total">
+          <p>$700.00 USD</p>
+          <p>Total</p>
+        </div>
+      </div>
+      <form action="/submit-payment" method="POST">
+        <div class="container">
+          <label for="payment-method">Payment Method:</label>
+          <ul id="payment-method">
+            <li>
+              <label>
+                <img src="imgs/logos/discover-logo.png" alt="discover-logo" />
+                <input
+                  type="radio"
+                  name="choose-payment"
+                  id="discover"
+                  value="discover"
+                />
+              </label>
+            </li>
+            <li>
+              <label>
+                <img src="imgs/logos/Mastercard-logo.svg" alt="mastercard" />
+                <input
+                  type="radio"
+                  name="choose-payment"
+                  id="mastercard"
+                  value="mastercard"
+                />
+              </label>
+            </li>
+            <li>
+              <label>
+                <img src="imgs/logos/PayPal.svg" alt="paypal" />
+                <input
+                  type="radio"
+                  name="choose-payment"
+                  id="paypal"
+                  value="paypal"
+                />
+              </label>
+            </li>
+            <li>
+              <label>
+                <img src="imgs/logos/Visa.svg" alt="visa" />
+                <input
+                  type="radio"
+                  name="choose-payment"
+                  id="visa"
+                  value="visa"
+                />
+              </label>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>
