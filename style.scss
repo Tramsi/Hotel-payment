@@ -1,0 +1,139 @@
+// Variables
+$bodyBg: #ffd702;
+$detailsBg: #e5d8cb;
+$iconBg: #f6f6f6;
+$borderBg: #fdbd4d;
+
+//global
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+//Mixins and functions
+@mixin max($maxWidth) {
+  @media (max-width:#{$maxWidth}) {
+    @content;
+  }
+}
+
+@mixin container($width) {
+  .container {
+    width: $width;
+    margin: 0 auto;
+  }
+}
+
+@function halfSize($size) {
+  $size: $size/2;
+  @return #{$size}px;
+}
+
+// mixin for making style to circular icon background from font awesome
+@mixin icon($iconName, $size, $iconColor, $bgColor, $rotate) {
+  .icon-bg {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: #{$size}px;
+    height: #{$size}px;
+    padding: halfSize($size);
+    margin-right: 20px;
+    background-color: $bgColor;
+
+    .icon {
+      color: $iconColor;
+    }
+    .fa-#{$iconName} {
+      transform: rotate(#{$rotate}deg);
+    }
+  }
+}
+
+// Styling
+
+body {
+  background-color: $bodyBg;
+  //   @include container(82%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  .grid {
+    width: 1000px;
+    min-width: 1000px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "img payment"
+      "details payment";
+    border-radius: 15px;
+    background-color: white;
+  }
+
+  .hotel-img {
+    grid-area: img;
+    background-image: url(imgs/Suite.jpg);
+    background-size: cover;
+    border-top-left-radius: inherit;
+  }
+  .details {
+    // @include container(90%);
+    grid-area: details;
+    background-color: $detailsBg;
+    border-bottom-left-radius: inherit;
+    .container {
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+      padding: 5%;
+      .top {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        div p:nth-of-type(2) {
+          font-weight: 600;
+          margin: 10px 0px;
+        }
+      }
+      .mid {
+        width: 100%;
+        display: flex;
+        margin-top: auto;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+      .bot {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        div p .costBefore {
+          font-weight: 600;
+        }
+        div p:nth-of-type(2) {
+          font-weight: 600;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+  .payment {
+    grid-area: payment;
+  }
+}

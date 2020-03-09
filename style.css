@@ -1,1 +1,132 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #ffd702;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body .grid {
+  width: 1000px;
+  min-width: 1000px;
+  height: 600px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.6fr 1fr;
+      grid-template-columns: 1.6fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: "img payment" "details payment";
+  border-radius: 15px;
+  background-color: white;
+}
+
+body .hotel-img {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: img;
+  background-image: url(imgs/Suite.jpg);
+  background-size: cover;
+  border-top-left-radius: inherit;
+}
+
+body .details {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: details;
+  background-color: #e5d8cb;
+  border-bottom-left-radius: inherit;
+}
+
+body .details .container {
+  font-size: 1.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  padding: 5%;
+}
+
+body .details .container .top {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .details .container .top div p:nth-of-type(2) {
+  font-weight: 600;
+  margin: 10px 0px;
+}
+
+body .details .container .mid {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: auto;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+body .details .container .bot {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .details .container .bot div p .costBefore {
+  font-weight: 600;
+}
+
+body .details .container .bot div p:nth-of-type(2) {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+body .payment {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: payment;
+}
+/*# sourceMappingURL=style.css.map */

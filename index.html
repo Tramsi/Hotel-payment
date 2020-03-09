@@ -8,54 +8,64 @@
   </head>
   <body>
     <section class="container grid">
-      <div class="hotel-img">
-        <img src="imgs/Suite.jpg" alt="Hotel suite" />
-      </div>
+      <div class="hotel-img"></div>
       <div class="details">
-        <div class="room">
-          <p>203</p>
-          <p>Room No.</p>
-        </div>
-        <div class="arrival">
-          <p>Arrival date</p>
-          <p>Thu, Oct 29, 2020</p>
-        </div>
-        <div class="departure">
-          <p>Departure date</p>
-          <p>Tue, Oct 27, 2020</p>
-        </div>
-        <p>Invoice information</p>
-        <div class="charges">
-          <p>
-            <span class="nightCost">250</span>x<span class="nightN">3</span
-            >nights:
-          </p>
-          <p class="costBefore">$750.00</p>
-        </div>
-        <div class="discount">
-          <p>$57.99</p>
-          <p>Discount</p>
-        </div>
-        <div class="subtotal">
-          <p>$692.01</p>
-          <p>Subtotal</p>
-        </div>
-        <div class="tax">
-          <p>$7.99</p>
-          <p>Tax</p>
-        </div>
-        <div class="total">
-          <p>$700.00 USD</p>
-          <p>Total</p>
+        <div class="container">
+          <div class="top">
+            <div class="room">
+              <p>203</p>
+              <p>Room No.</p>
+            </div>
+            <div class="arrival">
+              <p>Arrival date</p>
+              <p>Thu, Oct 29, 2020</p>
+            </div>
+            <div class="departure">
+              <p>Departure date</p>
+              <p>Tue, Oct 27, 2020</p>
+            </div>
+          </div>
+          <div class="mid">
+            <p>Invoice information</p>
+          </div>
+          <div class="bot">
+            <div class="charges">
+              <p>
+                <span class="nightCost">250</span>x<span class="nightN">3</span
+                >nights: <span class="costBefore">$750.00</span>
+              </p>
+              <p>Room charges</p>
+            </div>
+            <div class="discount">
+              <p>$57.99</p>
+              <p>Discount</p>
+            </div>
+            <div class="subtotal">
+              <p>$692.01</p>
+              <p>Subtotal</p>
+            </div>
+            <div class="tax">
+              <p>$7.99</p>
+              <p>Tax</p>
+            </div>
+            <div class="total">
+              <p>$700.00 USD</p>
+              <p>Total</p>
+            </div>
+          </div>
         </div>
       </div>
-      <form action="/submit-payment" method="POST">
+      <form action="/submit-payment" method="POST" class="payment">
         <div class="container">
           <label for="payment-method">Payment Method:</label>
           <ul id="payment-method">
             <li>
               <label>
-                <img src="imgs/logos/discover-logo.png" alt="discover-logo" />
+                <img
+                  width="100px"
+                  src="imgs/logos/discover-logo.png"
+                  alt="discover-logo"
+                />
                 <input
                   type="radio"
                   name="choose-payment"
@@ -66,7 +76,12 @@
             </li>
             <li>
               <label>
-                <img src="imgs/logos/Mastercard-logo.svg" alt="mastercard" />
+                <img
+                  width="100px"
+                  height="100px"
+                  src="imgs/logos/Mastercard-logo.svg"
+                  alt="mastercard"
+                />
                 <input
                   type="radio"
                   name="choose-payment"
@@ -77,7 +92,13 @@
             </li>
             <li>
               <label>
-                <img src="imgs/logos/PayPal.svg" alt="paypal" />
+                <img
+                  width="100px"
+                  height="100px"
+                  src="imgs/logos/PayPal.svg"
+                  alt="paypal"
+                />
+
                 <input
                   type="radio"
                   name="choose-payment"
@@ -88,7 +109,12 @@
             </li>
             <li>
               <label>
-                <img src="imgs/logos/Visa.svg" alt="visa" />
+                <img
+                  width="100px"
+                  height="100px"
+                  src="imgs/logos/Visa.svg"
+                  alt="visa"
+                />
                 <input
                   type="radio"
                   name="choose-payment"
