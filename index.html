@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hotel payment</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -57,80 +59,62 @@
       </div>
       <form action="/submit-payment" method="POST" class="payment">
         <div class="container">
-          <label for="payment-method">Payment Method:</label>
-          <ul id="payment-method">
-            <li>
-              <label>
-                <img
-                  width="100px"
-                  src="imgs/logos/discover-logo.png"
-                  alt="discover-logo"
-                />
-                <input
-                  type="radio"
-                  name="choose-payment"
-                  id="discover"
-                  value="discover"
-                />
-              </label>
-            </li>
-            <li>
-              <label>
-                <img
-                  width="100px"
-                  height="100px"
-                  src="imgs/logos/Mastercard-logo.svg"
-                  alt="mastercard"
-                />
-                <input
-                  type="radio"
-                  name="choose-payment"
-                  id="mastercard"
-                  value="mastercard"
-                />
-              </label>
-            </li>
-            <li>
-              <label>
-                <img
-                  width="100px"
-                  height="100px"
-                  src="imgs/logos/PayPal.svg"
-                  alt="paypal"
-                />
-
-                <input
-                  type="radio"
-                  name="choose-payment"
-                  id="paypal"
-                  value="paypal"
-                />
-              </label>
-            </li>
-            <li>
-              <label>
-                <img
-                  width="100px"
-                  height="100px"
-                  src="imgs/logos/Visa.svg"
-                  alt="visa"
-                />
-                <input
-                  type="radio"
-                  name="choose-payment"
-                  id="visa"
-                  value="visa"
-                />
-              </label>
-            </li>
-          </ul>
+          <div class="payment-cont">
+            <p>Payment Method:</p>
+            <ul id="payment-method">
+              <li>
+                <label>
+                  <input
+                    type="radio"
+                    name="choose-payment"
+                    id="discover"
+                    value="discover"
+                  />
+                  <div class="img discover"></div>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="radio"
+                    name="choose-payment"
+                    id="mastercard"
+                    value="mastercard"
+                  />
+                  <div class="img mastercard"></div>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="radio"
+                    name="choose-payment"
+                    id="paypal"
+                    value="paypal"
+                  />
+                  <div class="img paypal"></div>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="radio"
+                    name="choose-payment"
+                    id="visa"
+                    value="visa"
+                  />
+                  <div class="img visa"></div>
+                </label>
+              </li>
+            </ul>
+          </div>
           <div class="card">
             <label>
               <p>Card No.</p>
               <input type="number" />
             </label>
             <div class="icon-bg">
-              <i class="fas fa-camera fa-lg icon"></i>
+              <i class="fas fa-camera fa-1x icon"></i>
             </div>
           </div>
           <label class="expire-ccv">
@@ -171,7 +155,8 @@
             <input type="text" />
           </div>
           <div class="payment-total">
-            <p>Total: <span>$700.00 USD</span></p>
+            <p>Total:</p>
+            <p>$700.00 USD</p>
           </div>
           <button type="submit">Confirm payment</button>
           <p>Your credit card information is encrypted</p>

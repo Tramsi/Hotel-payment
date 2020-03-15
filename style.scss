@@ -46,7 +46,6 @@ html {
     width: #{$size}px;
     height: #{$size}px;
     padding: halfSize($size);
-    margin-right: 20px;
     background-color: $bgColor;
 
     .icon {
@@ -62,14 +61,17 @@ html {
 
 body {
   background-color: $bodyBg;
-  //   @include container(82%);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
+  min-width: 1200px;
   font-family: Arial, Helvetica, sans-serif;
+  @include max(768px) {
+    min-width: auto;
+  }
   .grid {
-    width: 1000px;
+    width: 1100px;
     min-width: 1000px;
     height: 600px;
     display: grid;
@@ -80,14 +82,34 @@ body {
       "details payment";
     border-radius: 15px;
     background-color: white;
+
+    @include max(768px) {
+      width: 100%;
+      min-width: auto;
+      height: auto;
+      grid-template-columns: 1fr;
+      grid-template-areas: "img" "details" "payment";
+      .hotel-img {
+        height: auto;
+        min-height: auto;
+      }
+      .payment {
+        min-height: 100vh;
+      }
+    }
   }
 
   .hotel-img {
     grid-area: img;
     background-image: url(imgs/Suite.jpg);
-    background-size: cover;
+    background-size: 100% 100%;
     border-top-left-radius: inherit;
+    @include max(578px) {
+      background-size: cover;
+      background-position: right;
+    }
   }
+
   .details {
     // @include container(90%);
     grid-area: details;
@@ -97,11 +119,18 @@ body {
       font-size: 1.2rem;
       display: flex;
       flex-direction: column;
-      flex-wrap: wrap;
       justify-content: space-around;
       align-items: center;
       height: 100%;
       padding: 5%;
+      @include max(578px) {
+        .top {
+          flex-direction: column;
+        }
+        .bot {
+          flex-direction: column;
+        }
+      }
       .top {
         width: 100%;
         display: flex;
@@ -135,5 +164,169 @@ body {
 
   .payment {
     grid-area: payment;
+    height: 100%;
+
+    .container {
+      outline-style: none;
+      height: 100%;
+      width: 70%;
+      margin: auto;
+      padding: 15% 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .payment-cont {
+        width: 100%;
+        p {
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+
+        ul {
+          display: flex;
+          list-style: none;
+          background-color: $iconBg;
+          justify-content: space-between;
+
+          li {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            margin: 0px 5px;
+            input {
+              position: absolute;
+              opacity: 0;
+              &:checked + .img {
+                border: 2px solid $borderBg;
+              }
+            }
+            .img {
+              width: 100%;
+              height: 100%;
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center center;
+            }
+            .discover {
+              background-image: url(imgs/logos/discover-logo.png);
+            }
+            .mastercard {
+              background-image: url(imgs/logos/Mastercard-logo.svg);
+            }
+            .paypal {
+              background-image: url(imgs/logos/PayPal.svg);
+            }
+            .visa {
+              background-image: url(imgs/logos/Visa.svg);
+            }
+          }
+        }
+      }
+      .card {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        label {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 100%;
+          input {
+            margin-top: 10px;
+            height: 30px;
+            margin-right: 20px;
+            border-radius: 5px;
+            border: 2px solid rgba(207, 207, 207, 0.5);
+          }
+        }
+        @include icon(camera, 30, black, $iconBg, 0);
+        .icon-bg {
+          cursor: pointer;
+        }
+      }
+      .expire-ccv {
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        .left {
+          width: auto;
+          margin-right: 10px;
+          select {
+            margin-top: 10px;
+            height: 30px;
+            border-radius: 5px;
+            border: 2px solid rgba(207, 207, 207, 0.5);
+          }
+        }
+        .mid {
+          width: auto;
+          margin-right: auto;
+          select {
+            margin-top: 10px;
+            height: 30px;
+            border-radius: 5px;
+            border: 2px solid rgba(207, 207, 207, 0.5);
+          }
+        }
+        .right {
+          width: 30%;
+          input {
+            width: 100%;
+            margin-top: 10px;
+            height: 30px;
+            border-radius: 5px;
+            border: 2px solid rgba(207, 207, 207, 0.5);
+            outline-style: none;
+            // &:focus {
+            //   border-color: $borderBg;
+            //   box-shadow: 0px 0px 4px $borderBg;
+            // }
+          }
+        }
+      }
+      div.name {
+        width: 100%;
+        input {
+          width: 100%;
+          margin-top: 5px;
+          height: 30px;
+          border-radius: 5px;
+          border: 2px solid rgba(207, 207, 207, 0.5);
+        }
+      }
+      div.payment-total {
+        p {
+          display: inline;
+        }
+        p:nth-of-type(2) {
+          font-weight: 600;
+        }
+      }
+      button {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: red;
+        border: none;
+        background: linear-gradient(180deg, $bodyBg, $borderBg);
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      button + p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+select,
+input,
+button {
+  outline-style: none;
+  &:focus {
+    border-color: $borderBg !important;
+    box-shadow: 0px 0px 4px $borderBg !important;
   }
 }

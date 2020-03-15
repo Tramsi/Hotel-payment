@@ -23,12 +23,19 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
+  min-width: 1200px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@media (max-width: 768px) {
+  body {
+    min-width: auto;
+  }
+}
+
 body .grid {
-  width: 1000px;
+  width: 1100px;
   min-width: 1000px;
   height: 600px;
   display: -ms-grid;
@@ -42,13 +49,38 @@ body .grid {
   background-color: white;
 }
 
+@media (max-width: 768px) {
+  body .grid {
+    width: 100%;
+    min-width: auto;
+    height: auto;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: "img" "details" "payment";
+  }
+  body .grid .hotel-img {
+    height: auto;
+    min-height: auto;
+  }
+  body .grid .payment {
+    min-height: 100vh;
+  }
+}
+
 body .hotel-img {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: img;
   background-image: url(imgs/Suite.jpg);
-  background-size: cover;
+  background-size: 100% 100%;
   border-top-left-radius: inherit;
+}
+
+@media (max-width: 578px) {
+  body .hotel-img {
+    background-size: cover;
+    background-position: right;
+  }
 }
 
 body .details {
@@ -68,8 +100,6 @@ body .details .container {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -webkit-box-align: center;
@@ -77,6 +107,21 @@ body .details .container {
           align-items: center;
   height: 100%;
   padding: 5%;
+}
+
+@media (max-width: 578px) {
+  body .details .container .top {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .details .container .bot {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 body .details .container .top {
@@ -128,5 +173,245 @@ body .payment {
   -ms-grid-row-span: 2;
   -ms-grid-column: 2;
   grid-area: payment;
+  height: 100%;
+}
+
+body .payment .container {
+  outline-style: none;
+  height: 100%;
+  width: 70%;
+  margin: auto;
+  padding: 15% 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .payment .container .payment-cont {
+  width: 100%;
+}
+
+body .payment .container .payment-cont p {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+body .payment .container .payment-cont ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  background-color: #f6f6f6;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .payment .container .payment-cont ul li {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  margin: 0px 5px;
+}
+
+body .payment .container .payment-cont ul li input {
+  position: absolute;
+  opacity: 0;
+}
+
+body .payment .container .payment-cont ul li input:checked + .img {
+  border: 2px solid #fdbd4d;
+}
+
+body .payment .container .payment-cont ul li .img {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+body .payment .container .payment-cont ul li .discover {
+  background-image: url(imgs/logos/discover-logo.png);
+}
+
+body .payment .container .payment-cont ul li .mastercard {
+  background-image: url(imgs/logos/Mastercard-logo.svg);
+}
+
+body .payment .container .payment-cont ul li .paypal {
+  background-image: url(imgs/logos/PayPal.svg);
+}
+
+body .payment .container .payment-cont ul li .visa {
+  background-image: url(imgs/logos/Visa.svg);
+}
+
+body .payment .container .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .payment .container .card label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+body .payment .container .card label input {
+  margin-top: 10px;
+  height: 30px;
+  margin-right: 20px;
+  border-radius: 5px;
+  border: 2px solid rgba(207, 207, 207, 0.5);
+}
+
+body .payment .container .card .icon-bg {
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 15px;
+  background-color: #f6f6f6;
+}
+
+body .payment .container .card .icon-bg .icon {
+  color: black;
+}
+
+body .payment .container .card .icon-bg .fa-camera {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+body .payment .container .card .icon-bg {
+  cursor: pointer;
+}
+
+body .payment .container .expire-ccv {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+body .payment .container .expire-ccv .left {
+  width: auto;
+  margin-right: 10px;
+}
+
+body .payment .container .expire-ccv .left select {
+  margin-top: 10px;
+  height: 30px;
+  border-radius: 5px;
+  border: 2px solid rgba(207, 207, 207, 0.5);
+}
+
+body .payment .container .expire-ccv .mid {
+  width: auto;
+  margin-right: auto;
+}
+
+body .payment .container .expire-ccv .mid select {
+  margin-top: 10px;
+  height: 30px;
+  border-radius: 5px;
+  border: 2px solid rgba(207, 207, 207, 0.5);
+}
+
+body .payment .container .expire-ccv .right {
+  width: 30%;
+}
+
+body .payment .container .expire-ccv .right input {
+  width: 100%;
+  margin-top: 10px;
+  height: 30px;
+  border-radius: 5px;
+  border: 2px solid rgba(207, 207, 207, 0.5);
+  outline-style: none;
+}
+
+body .payment .container div.name {
+  width: 100%;
+}
+
+body .payment .container div.name input {
+  width: 100%;
+  margin-top: 5px;
+  height: 30px;
+  border-radius: 5px;
+  border: 2px solid rgba(207, 207, 207, 0.5);
+}
+
+body .payment .container div.payment-total p {
+  display: inline;
+}
+
+body .payment .container div.payment-total p:nth-of-type(2) {
+  font-weight: 600;
+}
+
+body .payment .container button {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: red;
+  border: none;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffd702), to(#fdbd4d));
+  background: linear-gradient(180deg, #ffd702, #fdbd4d);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+body .payment .container button + p {
+  font-size: 0.9rem;
+}
+
+select,
+input,
+button {
+  outline-style: none;
+}
+
+select:focus,
+input:focus,
+button:focus {
+  border-color: #fdbd4d !important;
+  -webkit-box-shadow: 0px 0px 4px #fdbd4d !important;
+          box-shadow: 0px 0px 4px #fdbd4d !important;
 }
 /*# sourceMappingURL=style.css.map */
